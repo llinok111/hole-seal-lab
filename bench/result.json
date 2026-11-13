@@ -1,0 +1,137 @@
+{
+  "node": "v24.19.0",
+  "samples": 9,
+  "corpus": {
+    "meshes": 6,
+    "holes": 8,
+    "boundaryBefore": 55,
+    "boundaryAfter": 0,
+    "addedTriangles": 39,
+    "allClosed": true,
+    "cube-one-hole_holes": 1,
+    "sphere-two-holes_holes": 2,
+    "cylinder-cap-hole_holes": 1,
+    "torus-patch-hole_holes": 1,
+    "box-two-holes_holes": 2,
+    "sphere-punctured-rim_holes": 1
+  },
+  "timings": {
+    "fillAll6": {
+      "coldStartMs": 44.324576,
+      "n": 9,
+      "min": 17.063759,
+      "median": 25.63412,
+      "p95": 33.971283,
+      "stddev": 5.818265058628368,
+      "rsdPct": 23.519144492816338
+    },
+    "perMesh": {
+      "cube-one-hole": {
+        "triangles": 10,
+        "coldStartMs": 0.197582,
+        "n": 9,
+        "min": 0.131267,
+        "median": 0.141256,
+        "p95": 0.402786,
+        "stddev": 0.08226854592937287,
+        "rsdPct": 46.86509271938907
+      },
+      "sphere-two-holes": {
+        "triangles": 318,
+        "coldStartMs": 4.12241,
+        "n": 9,
+        "min": 3.875627,
+        "median": 4.00006,
+        "p95": 5.811435,
+        "stddev": 0.6554137504818364,
+        "rsdPct": 15.165337829663006
+      },
+      "cylinder-cap-hole": {
+        "triangles": 72,
+        "coldStartMs": 2.490381,
+        "n": 9,
+        "min": 2.315342,
+        "median": 2.629173,
+        "p95": 3.656214,
+        "stddev": 0.37325952640875604,
+        "rsdPct": 13.31589770258042
+      },
+      "torus-patch-hole": {
+        "triangles": 568,
+        "coldStartMs": 8.640613,
+        "n": 9,
+        "min": 6.28738,
+        "median": 6.552107,
+        "p95": 9.554822,
+        "stddev": 1.0914230140684777,
+        "rsdPct": 15.487093110327057
+      },
+      "box-two-holes": {
+        "triangles": 8,
+        "coldStartMs": 0.139172,
+        "n": 9,
+        "min": 0.10651,
+        "median": 0.158338,
+        "p95": 0.293211,
+        "stddev": 0.05703009294277652,
+        "rsdPct": 35.72592810453116
+      },
+      "sphere-punctured-rim": {
+        "triangles": 315,
+        "coldStartMs": 3.427795,
+        "n": 9,
+        "min": 3.357411,
+        "median": 3.535637,
+        "p95": 3.744599,
+        "stddev": 0.11955488197300956,
+        "rsdPct": 3.3728218109612564
+      }
+    },
+    "dp2000": {
+      "coldStartMs": 0.145584,
+      "n": 9,
+      "min": 26.114993,
+      "median": 26.289061,
+      "p95": 43.773309,
+      "stddev": 5.45320259256498,
+      "rsdPct": 19.090862068577334
+    },
+    "brute200": {
+      "coldStartMs": 0.889533,
+      "n": 9,
+      "min": 103.766921,
+      "median": 109.673586,
+      "p95": 130.58137,
+      "stddev": 9.186861778611657,
+      "rsdPct": 8.254780650736349
+    },
+    "dpPerPolygonMs": 0.0131445305,
+    "brutePerPolygonMs": 0.054836793,
+    "speedupDpVsBrute": 4.171833524217544,
+    "earClip30x500": {
+      "coldStartMs": 1.181862,
+      "n": 9,
+      "min": 34.375904,
+      "median": 34.701957,
+      "p95": 60.217213,
+      "stddev": 8.036351895156692,
+      "rsdPct": 21.434279136754224
+    },
+    "earClip30PerMs": 0.069403914
+  },
+  "correctness": {
+    "convexBruteEqual": "15/15",
+    "earClipSuboptimal": "12/30",
+    "worstEarPenalty": 2.004510634839499,
+    "dpMaxAreaVsBrute": {
+      "dp": 0.4658795710601196,
+      "brute": 0.4658795710601196,
+      "diff": 0
+    }
+  },
+  "notes": [
+    "fillAll6 = boundary-loop extraction + best-fit plane + DP + lift + audit for all six meshes",
+    "dp2000/brute200 run 2000/2000 repetitions per sample; per-polygon numbers divide the median",
+    "earClip30x500 runs the baseline over all 30 corpus polygons 500 times per sample"
+  ]
+}
